@@ -561,7 +561,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
 
 <!-- ENVELOPE OPENING -->
 <div id="envelope-screen" role="button" aria-label="Toca para abrir la invitación" tabindex="0">
-  <img id="env-image" src="envelope.png" alt="">
+  <img id="env-image" src="envelope.jpg" alt="">
   <video id="env-video" muted playsinline preload="auto">
     <source src="envelope.mp4" type="video/mp4">
   </video>
@@ -1285,7 +1285,7 @@ function launchInvitation(){
       gsap.to(envVideo,{opacity:1,duration:.7,ease:'power2.inOut'});
       envVideo.addEventListener('timeupdate', onTimeUpdate);
       envVideo.addEventListener('ended', triggerFlash);
-      setTimeout(triggerFlash, 5000); // fallback
+      setTimeout(triggerFlash, 9000); // fallback (video ~8s)
     } else {
       triggerFlash();
     }
