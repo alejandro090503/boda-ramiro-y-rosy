@@ -261,6 +261,23 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .padrino-tipo{font-family:var(--sans);font-size:10px;letter-spacing:.5em;text-transform:uppercase;color:var(--gold-deep);padding-left:.5em;margin-bottom:14px;font-weight:500}
 .padrino-names{font-family:var(--display);font-style:italic;font-size:clamp(17px,2vw,21px);color:var(--accent-deep);line-height:1.45}
 
+/* ── PADRINOS · CARRUSEL FLECHAS (base roxana-omar) ── */
+.padrinos-carousel{position:relative;max-width:380px;margin:44px auto 0}
+.padrinos-viewport{overflow:hidden}
+.padrinos-track{display:flex;transition:transform .45s cubic-bezier(.4,0,.2,1)}
+.padrinos-carousel .padrino-slide{flex:0 0 100%;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;text-align:center;padding:14px 34px}
+.padrinos-carousel .padrino-icon{width:66px;height:66px;margin:0 auto 18px;display:block}
+.padrinos-carousel .padrino-icon svg{width:100%;height:100%;fill:none;stroke:var(--gold);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.padrino-rol{display:block;font-family:var(--serif);font-style:italic;font-size:14px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-deep);font-weight:600;margin-bottom:14px}
+.padrinos-carousel .padrino-names{font-family:var(--serif);font-size:19px;font-weight:600;line-height:1.6;color:var(--accent-deep);font-style:normal}
+.padrinos-arrow{position:absolute;top:40px;transform:translateY(-50%);width:38px;height:38px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:var(--gold-deep);z-index:2;padding:0}
+.padrinos-arrow svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2}
+.padrinos-arrow.prev{left:-10px}
+.padrinos-arrow.next{right:-10px}
+.padrinos-dots{display:flex;justify-content:center;gap:8px;margin-top:22px}
+.padrinos-dots button{width:9px;height:9px;border-radius:50%;border:none;background:color-mix(in srgb,var(--gold-deep) 30%,transparent);cursor:pointer;padding:0;transition:background .25s,transform .25s}
+.padrinos-dots button.active{background:var(--gold-deep);transform:scale(1.3)}
+
 /* ============ UBICACIONES ============ */
 .locs h2{text-align:center;font-size:clamp(36px,5vw,60px);margin-bottom:20px}
 .locs-sub{text-align:center;font-family:var(--italiana);font-size:18px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-soft);padding-left:.3em;margin-bottom:80px}
@@ -402,6 +419,15 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .wheel-item-inner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .6s ease;}
 .wheel-item-inner:hover img{transform:scale(1.05)}
 .wheel-hub{position:absolute;width:clamp(50px,7vw,80px);height:clamp(50px,7vw,80px);color:var(--gold);opacity:.6}
+
+/* ── GALLERY — RUEDA 3D DRAG (base veronica-andres) ── */
+.wheel-scene{position:relative;width:100%;height:520px;margin:40px auto 0;perspective:1400px;transform-style:preserve-3d;overflow:visible;}
+.wheel-ring{position:absolute;width:100%;height:100%;transform-style:preserve-3d;cursor:grab;left:0;top:0;}
+.wheel-ring.dragging{cursor:grabbing;}
+.wheel-card{position:absolute;width:200px;height:280px;left:50%;top:50%;margin-left:-100px;margin-top:-140px;border-radius:18px;overflow:hidden;border:2px solid var(--hair-gold);box-shadow:0 12px 40px rgba(122,74,0,.22);user-select:none;-webkit-user-select:none;}
+.wheel-card img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;}
+.gal-hint{font-family:var(--display);font-style:italic;font-size:15px;font-weight:600;letter-spacing:.18em;color:var(--gold-deep);margin-top:24px;opacity:.85;text-align:center;}
+@media(max-width:600px){.wheel-scene{height:430px}.wheel-card{width:170px;height:238px;margin-left:-85px;margin-top:-119px}}
 
 /* ============ KIDS POLICY ============ */
 .kids-policy{text-align:center}
@@ -567,9 +593,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg-wrap">
-      <video class="hero-bg" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-        <source src="hero.mp4" type="video/mp4">
-      </video>
+      <img class="hero-bg" src="hero.jpg" alt="Ramiro y Rosy" style="object-position:center 30%">
     </div>
     <div class="hero-bg-overlay"></div>
     <div class="hero-frame"></div>
@@ -671,44 +695,32 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
     <div class="container">
       <div class="eyebrow">Quienes nos acompañan</div>
       <h2>Nuestros <em>padrinos</em></h2>
-      <div class="padrinos-grid">
-        <!-- Biblia: libro abierto -->
-        <div class="padrino-card">
-          <div class="padrino-icon">
-            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M2 6c0-1.1.9-2 2-2h7a3 3 0 0 1 3 3v13H4a2 2 0 0 1-2-2V6z"/>
-              <path d="M22 6c0-1.1-.9-2-2-2h-7a3 3 0 0 0-3 3v13h10a2 2 0 0 0 2-2V6z"/>
-              <path d="M12 7v13"/>
-              <path d="M5 10h4M5 13h4M15 10h4M15 13h4"/>
-            </svg>
+      <div class="padrinos-carousel">
+        <button class="padrinos-arrow prev" aria-label="Anterior"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="padrinos-arrow next" aria-label="Siguiente"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <div class="padrinos-viewport">
+          <div class="padrinos-track" id="padrinosTrack">
+            <div class="padrino-slide">
+              <div class="padrino-icon"><svg viewBox="0 0 64 64"><rect x="20" y="17" width="24" height="30" rx="2"/><line x1="32" y1="23" x2="32" y2="35"/><line x1="27" y1="28" x2="37" y2="28"/><line x1="20" y1="41" x2="44" y2="41"/></svg></div>
+              <div class="padrino-rol">Biblia</div>
+              <p class="padrino-names">Por confirmar</p>
+            </div>
+            <div class="padrino-slide">
+              <div class="padrino-icon"><svg viewBox="0 0 64 64"><path d="M44 24c-6.6 0-10 8-12 8s-5.4-8-12-8a8 8 0 000 16c6.6 0 10-8 12-8s5.4 8 12 8a8 8 0 000-16Z"/></svg></div>
+              <div class="padrino-rol">Lazo</div>
+              <p class="padrino-names">Por confirmar</p>
+            </div>
+            <div class="padrino-slide">
+              <div class="padrino-icon"><svg viewBox="0 0 64 64"><circle cx="25" cy="29" r="12"/><circle cx="39" cy="38" r="12"/><line x1="25" y1="25" x2="25" y2="33"/><line x1="21" y1="29" x2="29" y2="29"/></svg></div>
+              <div class="padrino-rol">Arras</div>
+              <p class="padrino-names">Por confirmar</p>
+            </div>
           </div>
-          <div class="padrino-tipo">Biblia</div>
-          <div class="padrino-names">Por confirmar</div>
         </div>
-        <!-- Lazo: lazo nupcial (infinito) -->
-        <div class="padrino-card">
-          <div class="padrino-icon">
-            <svg width="42" height="38" viewBox="0 0 42 28" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 14 C17 8, 6 8, 6 14 C6 20, 17 20, 21 14 C25 8, 36 8, 36 14 C36 20, 25 20, 21 14Z"/>
-              <line x1="21" y1="14" x2="21" y2="24"/>
-              <path d="M17 24 Q21 27 25 24"/>
-            </svg>
-          </div>
-          <div class="padrino-tipo">Lazo</div>
-          <div class="padrino-names">Por confirmar</div>
-        </div>
-        <!-- Arras: monedas apiladas -->
-        <div class="padrino-card">
-          <div class="padrino-icon">
-            <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-              <ellipse cx="12" cy="6" rx="7" ry="2.5"/>
-              <path d="M5 6v3c0 1.38 3.13 2.5 7 2.5s7-1.12 7-2.5V6"/>
-              <path d="M5 9v3c0 1.38 3.13 2.5 7 2.5s7-1.12 7-2.5V9"/>
-              <path d="M5 12v3c0 1.38 3.13 2.5 7 2.5s7-1.12 7-2.5v-3"/>
-            </svg>
-          </div>
-          <div class="padrino-tipo">Arras</div>
-          <div class="padrino-names">Por confirmar</div>
+        <div class="padrinos-dots" id="padrinosDots">
+          <button class="active" aria-label="Padrino 1"></button>
+          <button aria-label="Padrino 2"></button>
+          <button aria-label="Padrino 3"></button>
         </div>
       </div>
     </div>
@@ -922,35 +934,17 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
       <h2>Nuestros <em>recuerdos</em></h2>
       <div class="gallery-sub">Ramiro &amp; Rosy</div>
     </div>
-    <div class="wheel-stage">
-      <div class="wheel" id="wheel">
-        <span class="wheel-spoke" aria-hidden="true"></span>
-        <span class="wheel-spoke wheel-spoke--inner" aria-hidden="true"></span>
-        <div class="wheel-item" style="--i:0"><div class="wheel-item-inner"><img src="g1.jpg" alt="Foto 1" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:1"><div class="wheel-item-inner"><img src="g2.jpg" alt="Foto 2" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:2"><div class="wheel-item-inner"><img src="g3.jpg" alt="Foto 3" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:3"><div class="wheel-item-inner"><img src="g4.jpg" alt="Foto 4" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:4"><div class="wheel-item-inner"><img src="g5.jpg" alt="Foto 5" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:5"><div class="wheel-item-inner"><img src="g6.jpg" alt="Foto 6" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:6"><div class="wheel-item-inner"><img src="g7.jpg" alt="Foto 7" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:7"><div class="wheel-item-inner"><img src="g8.jpg" alt="Foto 8" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:8"><div class="wheel-item-inner"><img src="g9.jpg" alt="Foto 9" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:9"><div class="wheel-item-inner"><img src="g10.jpg" alt="Foto 10" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:10"><div class="wheel-item-inner"><img src="g11.jpg" alt="Foto 11" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:11"><div class="wheel-item-inner"><img src="g12.jpg" alt="Foto 12" loading="lazy"></div></div>
-        <div class="wheel-item" style="--i:12"><div class="wheel-item-inner"><img src="g13.jpg" alt="Foto 13" loading="lazy"></div></div>
-      </div>
-      <div class="wheel-hub" aria-hidden="true">
-        <svg viewBox="0 0 60 60" fill="none">
-          <g stroke="currentColor" stroke-width=".8" fill="none">
-            <circle cx="30" cy="30" r="18" opacity=".4"/>
-            <circle cx="30" cy="30" r="10"/>
-            <circle cx="30" cy="30" r="3" fill="currentColor"/>
-            <path d="M30 14 L30 20 M30 40 L30 46 M14 30 L20 30 M40 30 L46 30" opacity=".55"/>
-          </g>
-        </svg>
+    <div class="wheel-scene" id="wheel-scene">
+      <div class="wheel-ring" id="wheel-ring">
+        <div class="wheel-card"><img src="g1.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
+        <div class="wheel-card"><img src="g2.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
+        <div class="wheel-card"><img src="g3.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
+        <div class="wheel-card"><img src="g4.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
+        <div class="wheel-card"><img src="g5.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
+        <div class="wheel-card"><img src="g6.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
       </div>
     </div>
+    <p class="gal-hint">Arrastra para girar</p>
   </section>
 
   <div class="seam" style="--from:var(--surface);--to:var(--paper)" aria-hidden="true"></div>
@@ -1347,8 +1341,35 @@ gsap.fromTo('.date-roman',{opacity:0,letterSpacing:'1em'},{opacity:1,letterSpaci
 
 // ------ FAMILIA & PADRINOS ------
 gsap.fromTo('.familia-card',{opacity:0,y:50,scale:.95},{opacity:1,y:0,scale:1,duration:1.1,stagger:.15,ease:'power4.out',scrollTrigger:{trigger:'.familia-grid',start:'top 82%'}});
-gsap.fromTo('.padrino-card',{opacity:0,y:40},{opacity:1,y:0,duration:1,stagger:.1,ease:'power3.out',scrollTrigger:{trigger:'.padrinos-grid',start:'top 82%'}});
+gsap.fromTo('.padrinos-carousel',{opacity:0,y:40},{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:'.padrinos-carousel',start:'top 82%'}});
 gsap.fromTo('.familia h2,.padrinos h2',{opacity:0,y:24},{opacity:1,y:0,duration:1.1,stagger:.1,scrollTrigger:{trigger:'.familia',start:'top 80%'}});
+
+// ------ PADRINOS · CARRUSEL FLECHAS (base roxana-omar) ------
+function initSwipeCarousel(trackId,dotsId,arrowSel){
+  var track=document.getElementById(trackId);
+  if(!track)return;
+  var slides=track.children.length;
+  var dots=document.querySelectorAll('#'+dotsId+' button');
+  var idx=0;
+  function go(i){
+    idx=(i+slides)%slides;
+    track.style.transform='translateX('+(-idx*100)+'%)';
+    dots.forEach(function(d,k){d.classList.toggle('active',k===idx);});
+  }
+  var prev=document.querySelector(arrowSel+'.prev');
+  var next=document.querySelector(arrowSel+'.next');
+  if(prev)prev.addEventListener('click',function(){go(idx-1);});
+  if(next)next.addEventListener('click',function(){go(idx+1);});
+  dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);});});
+  var sx=0,sy=0;
+  track.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  track.addEventListener('touchend',function(e){
+    var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)){go(dx<0?idx+1:idx-1);}
+  },{passive:true});
+  go(0);
+}
+initSwipeCarousel('padrinosTrack','padrinosDots','.padrinos-arrow');
 
 // ------ LOCATIONS ------
 gsap.fromTo('.locs h2,.locs .eyebrow',{opacity:0,y:24},{opacity:1,y:0,duration:1.1,stagger:.1,scrollTrigger:{trigger:'.locs',start:'top 80%'}});
@@ -1428,16 +1449,32 @@ gsap.fromTo('.cd-block',{opacity:0,y:40,rotateX:-30},{opacity:1,y:0,rotateX:0,du
 gsap.fromTo('.swatch',{opacity:0,scale:.4,y:30},{opacity:1,scale:1,y:0,duration:1.1,stagger:.1,ease:'elastic.out(1,.6)',scrollTrigger:{trigger:'.dress-swatches',start:'top 82%'}});
 gsap.fromTo('.dress .eyebrow,.dress h2,.dress-sub,.dress-note,.dress-avoid',{opacity:0,y:14},{opacity:1,y:0,duration:.9,stagger:.08,scrollTrigger:{trigger:'.dress',start:'top 78%'}});
 
-// ------ WHEEL ------
-const wheel=document.getElementById('wheel');
-const wheelItems=wheel?wheel.querySelectorAll('.wheel-item-inner'):[];
-if(wheel&&!prefersReduced){
-  gsap.fromTo('.wheel-item',{opacity:0,scale:.4},{opacity:1,scale:1,duration:1.2,stagger:.08,ease:'back.out(1.3)',scrollTrigger:{trigger:'.wheel-stage',start:'top 78%'}});
-  gsap.fromTo('.wheel-hub',{opacity:0,scale:.3,rotate:-60},{opacity:1,scale:1,rotate:0,duration:1.4,ease:'back.out(1.6)',scrollTrigger:{trigger:'.wheel-stage',start:'top 78%'}});
-  const wheelTL=gsap.timeline({scrollTrigger:{trigger:'.wheel-stage',start:'top bottom',end:'bottom top',scrub:1.2}});
-  wheelTL.to(wheel,{rotation:360,ease:'none'},0);
-  wheelTL.to(wheelItems,{rotation:-360,ease:'none'},0);
-}
+// ------ GALLERY WHEEL (drag para girar · base veronica-andres) ------
+(function initWheel(){
+  var ring=document.getElementById('wheel-ring');
+  if(!ring) return;
+  var cards=ring.querySelectorAll('.wheel-card');
+  var n=cards.length; if(!n) return;
+  var radius=window.innerWidth<600?190:250;
+  var rot=0,vel=0,isDrag=false,startX=0,startRot=0,lastX=0,rafId=null;
+  cards.forEach(function(card,i){card.style.transform='rotateY('+(360/n*i)+'deg) translateZ('+radius+'px)';});
+  function setRot(){gsap.set(ring,{rotateY:rot});}
+  setRot();
+  function inertia(){if(isDrag)return;rot+=vel;vel*=0.94;setRot();if(Math.abs(vel)>0.05)rafId=requestAnimationFrame(inertia);}
+  function pDown(x){isDrag=true;ring.classList.add('dragging');startX=x;lastX=x;startRot=rot;vel=0;if(rafId)cancelAnimationFrame(rafId);}
+  function pMove(x){if(!isDrag)return;var dx=x-startX;rot=startRot+dx*0.45;vel=(x-lastX)*0.5;lastX=x;setRot();}
+  function pUp(){if(!isDrag)return;isDrag=false;ring.classList.remove('dragging');rafId=requestAnimationFrame(inertia);}
+  ring.addEventListener('mousedown',function(e){e.preventDefault();pDown(e.clientX);});
+  window.addEventListener('mousemove',function(e){pMove(e.clientX);});
+  window.addEventListener('mouseup',pUp);
+  ring.addEventListener('touchstart',function(e){pDown(e.touches[0].clientX);},{passive:true});
+  ring.addEventListener('touchmove',function(e){pMove(e.touches[0].clientX);},{passive:true});
+  ring.addEventListener('touchend',pUp);
+  var auto=true;
+  (function spin(){if(auto&&!isDrag&&!prefersReduced){rot+=0.12;setRot();}requestAnimationFrame(spin);})();
+  ring.addEventListener('mousedown',function(){auto=false;});
+  ring.addEventListener('touchstart',function(){auto=false;});
+})();
 gsap.fromTo('.gallery-head > *',{opacity:0,y:18},{opacity:1,y:0,duration:1,stagger:.1,scrollTrigger:{trigger:'.gallery-head',start:'top 80%'}});
 
 // ------ LIGHTBOX ------
