@@ -31,7 +31,7 @@
   --accent-deep:#a8460c;
   --gold:#d98a2e;
   --gold-soft:#fee0a2;
-  --gold-deep:#9a5518;
+  --gold-deep:#854912;
   --copper:#a15423;
   --navy:#9a4510;
   --ink:#3a1e0a;
@@ -93,11 +93,11 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .particle{position:absolute;top:-40px;pointer-events:none;will-change:transform,opacity}
 .particle--pollen{
   width:6px;height:6px;border-radius:50%;
-  background:radial-gradient(circle,#fee4a8 0%,rgba(212,168,120,.5) 55%,transparent 100%);
-  box-shadow:0 0 8px rgba(212,168,120,.6),0 0 18px rgba(255,106,0,.28);
+  background:radial-gradient(circle,#ffd89a 0%,rgba(240,140,60,.5) 55%,transparent 100%);
+  box-shadow:0 0 8px rgba(240,140,60,.55),0 0 18px rgba(255,106,0,.32);
   opacity:.8;
 }
-.particle--spark{width:3px;height:3px;border-radius:50%;background:#d99a3e;box-shadow:0 0 6px #ff9a3e;opacity:0;}
+.particle--spark{width:3px;height:3px;border-radius:50%;background:#f0842a;box-shadow:0 0 6px #ff7a1e;opacity:0;}
 .particle--star{width:12px;height:12px;color:var(--gold);opacity:.6}
 .particle--star--big{width:18px;height:18px;color:var(--gold-soft);opacity:.5}
 .particle--line{
@@ -189,7 +189,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 @keyframes scrollLine{0%,100%{transform:scaleY(.3);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}}
 
 /* ============ SEAMS ============ */
-.seam{height:72px;background:linear-gradient(to bottom,var(--from,var(--bg)) 0%,color-mix(in srgb, var(--from,var(--bg)) 50%, var(--to,var(--surface)) 50%) 50%,var(--to,var(--surface)) 100%);pointer-events:none;}
+.seam{height:72px;background:linear-gradient(to bottom,var(--from,var(--bg)) 0%,color-mix(in srgb, var(--accent-soft) 9%, color-mix(in srgb, var(--from,var(--bg)) 50%, var(--to,var(--surface)) 50%)) 50%,var(--to,var(--surface)) 100%);pointer-events:none;}
 
 /* ============ SECTIONS ============ */
 .section-bg{background:linear-gradient(180deg,var(--bg) 0%,color-mix(in srgb,var(--accent-soft) 8%,var(--bg)) 50%,var(--bg) 100%);padding:min(18vh,170px) 0;position:relative;contain:layout paint}
@@ -208,6 +208,10 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
   filter:blur(0.9px);pointer-events:none;z-index:0;
 }
 .section-paper{background:linear-gradient(180deg,var(--paper) 0%,color-mix(in srgb,var(--accent-soft) 10%,var(--paper)) 50%,var(--paper) 100%);padding:min(18vh,170px) 0;position:relative;contain:layout paint}
+/* Progresión: secciones finales un poco más cálidas (transición a naranja hacia abajo) */
+.sec-warm.section-bg{background:linear-gradient(180deg,var(--bg) 0%,color-mix(in srgb,var(--accent-soft) 15%,var(--bg)) 50%,var(--bg) 100%)}
+.sec-warm.section-surface{background:linear-gradient(180deg,var(--surface) 0%,color-mix(in srgb,var(--accent-soft) 17%,var(--surface)) 50%,var(--surface) 100%)}
+.sec-warm.section-paper{background:linear-gradient(180deg,var(--paper) 0%,color-mix(in srgb,var(--accent-soft) 16%,var(--paper)) 50%,var(--paper) 100%)}
 
 /* ============ VERSO / BIBLIA ============ */
 .verse-wrap{text-align:center;max-width:820px;margin:0 auto}
@@ -1017,7 +1021,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   </section>
 
   <!-- LLUVIA DE SOBRES -->
-  <section class="section-surface sobres" aria-label="Lluvia de sobres">
+  <section class="section-surface sec-warm sobres" aria-label="Lluvia de sobres">
     <div class="container">
       <div class="eyebrow">Regalos</div>
       <h2>Lluvia de <em>sobres</em></h2>
@@ -1075,7 +1079,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   <div class="seam" style="--from:var(--surface);--to:var(--bg)" aria-hidden="true"></div>
 
   <!-- ALBUM QR -->
-  <section class="section-bg album">
+  <section class="section-bg sec-warm album">
     <div class="container album-inner">
       <div class="eyebrow">Álbum compartido</div>
       <h2>Comparte <em>tus</em> fotos con nosotros</h2>
@@ -1093,7 +1097,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   <div class="seam" style="--from:var(--bg);--to:var(--paper)" aria-hidden="true"></div>
 
   <!-- RSVP -->
-  <section class="section-paper rsvp" id="rsvp">
+  <section class="section-paper sec-warm rsvp" id="rsvp">
     <div class="container">
       <div class="rsvp-card">
         <svg class="rsvp-corner rsvp-corner--tl" viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M2 50 L2 2 L50 2" stroke="var(--gold)" stroke-width=".9" opacity=".6"/><circle cx="2" cy="2" r="2.5" fill="var(--gold)" opacity=".5"/></svg>
