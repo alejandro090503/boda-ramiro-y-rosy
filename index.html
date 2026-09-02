@@ -230,7 +230,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .date-hero{position:relative;padding:min(22vh,220px) 0;background:#4d2206;color:#F8F5EC;text-align:center;isolation:isolate;overflow:hidden;}
 .date-hero::after{
   content:"";position:absolute;inset:0;z-index:0;
-  background:linear-gradient(to bottom,rgba(77,34,6,.58) 0%,rgba(77,34,6,.34) 50%,rgba(77,34,6,.58) 100%),url('foto1.jpg') 42% center/cover no-repeat;
+  background:linear-gradient(to bottom,rgba(77,34,6,.58) 0%,rgba(77,34,6,.34) 50%,rgba(77,34,6,.58) 100%),url('foto1.jpg') center 35%/cover no-repeat;
   mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.15) 15%,rgba(0,0,0,.55) 30%,black 42%,black 58%,rgba(0,0,0,.55) 70%,rgba(0,0,0,.15) 85%,transparent 100%);
   -webkit-mask-image:linear-gradient(to bottom,transparent 0%,rgba(0,0,0,.15) 15%,rgba(0,0,0,.55) 30%,black 42%,black 58%,rgba(0,0,0,.55) 70%,rgba(0,0,0,.15) 85%,transparent 100%);
   pointer-events:none;
@@ -469,13 +469,13 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .wheel-hub{position:absolute;width:clamp(50px,7vw,80px);height:clamp(50px,7vw,80px);color:var(--gold);opacity:.6}
 
 /* ── GALLERY — RUEDA 3D DRAG (base veronica-andres) ── */
-.wheel-scene{position:relative;width:100%;height:520px;margin:40px auto 0;perspective:1400px;transform-style:preserve-3d;overflow:visible;}
+.wheel-scene{position:relative;width:100%;height:560px;margin:40px auto 0;perspective:2200px;transform-style:preserve-3d;overflow:visible;}
 .wheel-ring{position:absolute;width:100%;height:100%;transform-style:preserve-3d;cursor:grab;left:0;top:0;}
 .wheel-ring.dragging{cursor:grabbing;}
-.wheel-card{position:absolute;width:200px;height:280px;left:50%;top:50%;margin-left:-100px;margin-top:-140px;border-radius:18px;overflow:hidden;border:2px solid var(--hair-gold);box-shadow:0 12px 40px rgba(122,74,0,.22);user-select:none;-webkit-user-select:none;}
+.wheel-card{position:absolute;width:210px;height:294px;left:50%;top:50%;margin-left:-105px;margin-top:-147px;border-radius:18px;overflow:hidden;border:2px solid var(--hair-gold);box-shadow:0 12px 40px rgba(122,74,0,.22);user-select:none;-webkit-user-select:none;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper);}
 .wheel-card img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;}
 .gal-hint{font-family:var(--display);font-style:italic;font-size:15px;font-weight:600;letter-spacing:.18em;color:var(--gold-deep);margin-top:24px;opacity:.85;text-align:center;}
-@media(max-width:600px){.wheel-scene{height:430px}.wheel-card{width:170px;height:238px;margin-left:-85px;margin-top:-119px}}
+@media(max-width:600px){.wheel-scene{height:440px}.wheel-card{width:168px;height:235px;margin-left:-84px;margin-top:-117.5px}}
 
 /* ============ KIDS POLICY ============ */
 .kids-policy{text-align:center}
@@ -651,7 +651,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
   <!-- HERO -->
   <section class="hero">
     <div class="hero-bg-wrap">
-      <img class="hero-bg" src="hero.jpg" alt="Ramiro y Rosy" style="object-position:center 30%">
+      <img class="hero-bg" src="hero.jpg" alt="Ramiro y Rosy" style="object-position:center 45%">
     </div>
     <div class="hero-bg-overlay"></div>
     <div class="hero-frame"></div>
@@ -1009,12 +1009,20 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
     </div>
     <div class="wheel-scene" id="wheel-scene">
       <div class="wheel-ring" id="wheel-ring">
-        <div class="wheel-card"><img src="g1.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
-        <div class="wheel-card"><img src="g2.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
-        <div class="wheel-card"><img src="g3.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
-        <div class="wheel-card"><img src="g4.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
-        <div class="wheel-card"><img src="g5.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
-        <div class="wheel-card"><img src="g6.jpg" alt="Ramiro y Rosy" loading="lazy"></div>
+        <div class="wheel-card"><img data-src="gal01.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal02.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal03.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal04.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal05.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal06.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal07.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal08.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal09.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal10.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal11.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal12.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal13.jpg" alt="Ramiro y Rosy" decoding="async"></div>
+        <div class="wheel-card"><img data-src="gal14.jpg" alt="Ramiro y Rosy" decoding="async"></div>
       </div>
     </div>
     <p class="gal-hint">Arrastra para girar</p>
@@ -1420,6 +1428,7 @@ function launchInvitation(){
     if(opened) return;
     opened = true;
     startMusic(); // arranca en el gesto del usuario (autoplay policy)
+    if(window._loadGallery) window._loadGallery(); // precarga la galería
     gsap.to(envHint,{opacity:0,duration:.35});
     // try video, fallback to direct reveal
     if(envVideo && (envVideo.currentSrc || envVideo.querySelector('source'))){
@@ -1604,7 +1613,17 @@ gsap.fromTo('.dress .eyebrow,.dress h2,.dress-sub,.dress-note,.dress-avoid',{opa
   if(!ring) return;
   var cards=ring.querySelectorAll('.wheel-card');
   var n=cards.length; if(!n) return;
-  var radius=window.innerWidth<600?190:250;
+  var cardW=cards[0].getBoundingClientRect().width||210;
+  var gap=window.innerWidth<600?14:22;
+  // radio mínimo para que NO se traslapen: (w/2+gap/2)/tan(pi/n)
+  var radius=Math.round((cardW/2+gap/2)/Math.tan(Math.PI/n));
+  // carga diferida determinista (loading="lazy" NO dispara en cards con translateZ,
+  // y IntersectionObserver puede no ejecutarse en algunos navegadores/webviews)
+  var galImgs=ring.querySelectorAll('img[data-src]');
+  function loadGallery(){galImgs.forEach(function(im){if(im.dataset.src){im.src=im.dataset.src;delete im.dataset.src;}});}
+  window._loadGallery=loadGallery;
+  if(document.readyState==='complete'){setTimeout(loadGallery,900);}
+  else{window.addEventListener('load',function(){setTimeout(loadGallery,900);});}
   var rot=0,vel=0,isDrag=false,startX=0,startRot=0,lastX=0,rafId=null;
   cards.forEach(function(card,i){card.style.transform='rotateY('+(360/n*i)+'deg) translateZ('+radius+'px)';});
   function setRot(){gsap.set(ring,{rotateY:rot});}
@@ -1619,6 +1638,17 @@ gsap.fromTo('.dress .eyebrow,.dress h2,.dress-sub,.dress-note,.dress-avoid',{opa
   ring.addEventListener('touchstart',function(e){pDown(e.touches[0].clientX);},{passive:true});
   ring.addEventListener('touchmove',function(e){pMove(e.touches[0].clientX);},{passive:true});
   ring.addEventListener('touchend',pUp);
+  // recalcular radio al cambiar tamaño/orientación (evita traslapes)
+  var rzT=null;
+  window.addEventListener('resize',function(){
+    clearTimeout(rzT);
+    rzT=setTimeout(function(){
+      var w=cards[0].getBoundingClientRect().width||210;
+      var g=window.innerWidth<600?14:22;
+      radius=Math.round((w/2+g/2)/Math.tan(Math.PI/n));
+      cards.forEach(function(card,i){card.style.transform='rotateY('+(360/n*i)+'deg) translateZ('+radius+'px)';});
+    },160);
+  });
   var auto=true;
   (function spin(){if(auto&&!isDrag&&!prefersReduced){rot+=0.12;setRot();}requestAnimationFrame(spin);})();
   ring.addEventListener('mousedown',function(){auto=false;});
