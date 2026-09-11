@@ -1313,8 +1313,10 @@ const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
   /* Tope: lo que los novios asignaron en el panel. */
   var pasesAsignados = (isNaN(rawP) || rawP < 1 || rawP > 20) ? 1 : rawP;
-  /* Lo que el invitado dice que va a ocupar de verdad. Nunca mayor al tope. */
-  var pasesAUsar = pasesAsignados;
+  /* Lo que el invitado dice que va a ocupar de verdad. Arranca en 1 y el
+     invitado va sumando: asi captura solo los que de verdad van, en vez de
+     encontrarse los campos de todos sus pases ya abiertos. Nunca pasa del tope. */
+  var pasesAUsar = 1;
 
   var rsvpChoice = null;
   var savedNames = [];
