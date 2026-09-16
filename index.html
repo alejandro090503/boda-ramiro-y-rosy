@@ -555,6 +555,7 @@ h1 em,h2 em,h3 em{font-style:italic;font-weight:500;color:var(--accent)}
 .rsvp-fields{display:flex;flex-direction:column;gap:10px;max-width:420px;margin:0 auto 20px;}
 .rsvp-input{width:100%;padding:15px 20px;border:1.5px solid rgba(201,138,46,.28);border-radius:12px;background:rgba(255,255,255,.82);font-family:var(--sans);font-size:15px;font-weight:500;color:var(--ink);letter-spacing:.03em;outline:none;transition:border-color .3s,box-shadow .3s,background .3s;-webkit-appearance:none;min-height:52px;}
 .rsvp-input:focus{border-color:var(--gold-deep);box-shadow:0 0 0 3px rgba(201,138,46,.15);background:rgba(255,255,255,.96);}
+.rsvp-input.rsvp-input-falta{border-color:#B85042;box-shadow:0 0 0 3px rgba(184,80,66,.16);}
 .rsvp-input::placeholder{color:var(--ink-soft);opacity:.6;font-weight:400}
 .rsvp-btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;max-width:420px;margin:0 auto;padding:18px 36px;border-radius:50px;border:1.5px solid rgba(201,138,46,.5);background:linear-gradient(135deg,#fee4a8 0%,#fdf3dc 100%);font-family:var(--sans);font-size:12px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;color:var(--accent-deep);cursor:pointer;min-height:56px;position:relative;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 6px 20px rgba(201,138,46,.28),0 2px 8px rgba(122,74,0,.14);}
 .rsvp-btn::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,var(--gold) 0%,#f5dfa0 50%,var(--gold) 100%);opacity:0;transition:opacity .4s;border-radius:50px;}
@@ -1345,7 +1346,7 @@ const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function say(msg, color){
     if(!feedbackEl) return;
     if(!msg){ feedbackEl.style.display = 'none'; feedbackEl.textContent = ''; return; }
-    feedbackEl.style.display = '';
+    feedbackEl.style.display = 'block';
     feedbackEl.style.color = color || 'var(--gold-deep)';
     feedbackEl.textContent = msg;
   }
@@ -1369,6 +1370,7 @@ const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
       inp.maxLength = 60;
       inp.disabled = frozen;
       inp.value = savedNames[i] || '';
+      inp.addEventListener('input', function(){ this.classList.remove('rsvp-input-falta'); });
       (function(idx){ inp.addEventListener('input', function(){ savedNames[idx] = this.value; }); })(i);
       fieldsEl.appendChild(inp);
     }
@@ -1522,7 +1524,17 @@ const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
         return;
       }
       if(nombres.length < pasesAUsar){
-        say('Faltan ' + (pasesAUsar - nombres.length) + ' nombre' + (pasesAUsar - nombres.length === 1 ? '' : 's') + '. Si van a ser menos, baja el contador de pases.', '#B85042');
+        var faltan = pasesAUsar - nombres.length;
+        /* Se marcan los campos vacíos para que se note cuál falta */
+        var primero = null;
+        for(var k=0;k<inputs.length;k++){
+          var vacio = !inputs[k].value.trim();
+          inputs[k].classList.toggle('rsvp-input-falta', vacio);
+          if(vacio && !primero) primero = inputs[k];
+        }
+        say('Elegiste ' + pasesAUsar + ' pases pero escribiste ' + nombres.length + ' nombre' + (nombres.length === 1 ? '' : 's') + '. Escribe ' + (faltan === 1 ? 'el nombre que falta' : 'los ' + faltan + ' nombres que faltan') + ' o baja el contador a los pases que vas a utilizar.', '#B85042');
+        if(feedbackEl) feedbackEl.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+        if(primero) primero.focus({ preventScroll: true });
         return;
       }
     }
