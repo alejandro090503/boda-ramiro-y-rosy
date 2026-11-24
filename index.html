@@ -1197,7 +1197,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
 
           <div class="eyebrow">Confirma tu asistencia</div>
           <h2 class="rsvp-title">Tu presencia <em>lo</em> es todo</h2>
-          <p class="rsvp-text">Por favor confírmanos tu asistencia antes del <strong>23 de noviembre de 2026</strong>. Nos hará muy felices saber que nos acompañarás.</p>
+          <p class="rsvp-text">Por favor confírmanos tu asistencia antes del <strong>27 de noviembre de 2026</strong>. Nos hará muy felices saber que nos acompañarás.</p>
 
           <p id="rsvp-name-display"></p>
 
@@ -1251,7 +1251,7 @@ footer{background:var(--accent-deep);padding:min(16vh,140px) 0}
 
           <div class="rsvp-deadline">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm.5 5v5.25l4.5 2.67-.75 1.23L11 13V7h1.5z"/></svg>
-            Fecha límite · 23 de noviembre de 2026
+            Fecha límite · 27 de noviembre de 2026
           </div>
         </div>
       </div>
@@ -1303,7 +1303,7 @@ const prefersReduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 (function(){
   var PANEL_API = 'https://panel-invitados.vercel.app/api/confirmar';
   var RSVP_URL  = 'https://boda-ramiro-y-rosy.vercel.app';
-  var DEADLINE  = new Date(2026, 10, 23, 23, 59, 59, 999); /* 23 nov 2026 (extendido a petición del admin) */
+  var DEADLINE  = new Date(2026, 10, 27, 23, 59, 59, 999); /* 27 nov 2026 (extendido a petición del admin) */
   var frozen    = Date.now() > DEADLINE.getTime();
 
   /* Personalizacion robusta: WhatsApp y Messenger cortan la URL en el primer
